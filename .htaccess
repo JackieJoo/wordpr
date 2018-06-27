@@ -1,0 +1,68 @@
+# BEGIN iThemes Security - Не меняйте и не удаляйте эту строку
+# iThemes Security Config Details: 2
+	# Заблокированые хосты - Безопасность > Настройки > Заблокированные пользователи
+	SetEnvIF REMOTE_ADDR "^116\.66\.250\.220$" DenyAccess
+	SetEnvIF X-FORWARDED-FOR "^116\.66\.250\.220$" DenyAccess
+	SetEnvIF X-CLUSTER-CLIENT-IP "^116\.66\.250\.220$" DenyAccess
+
+	SetEnvIF REMOTE_ADDR "^83\.174\.215\.5$" DenyAccess
+	SetEnvIF X-FORWARDED-FOR "^83\.174\.215\.5$" DenyAccess
+	SetEnvIF X-CLUSTER-CLIENT-IP "^83\.174\.215\.5$" DenyAccess
+
+	SetEnvIF REMOTE_ADDR "^94\.180\.241\.216$" DenyAccess
+	SetEnvIF X-FORWARDED-FOR "^94\.180\.241\.216$" DenyAccess
+	SetEnvIF X-CLUSTER-CLIENT-IP "^94\.180\.241\.216$" DenyAccess
+
+	SetEnvIF REMOTE_ADDR "^85\.143\.204\.217$" DenyAccess
+	SetEnvIF X-FORWARDED-FOR "^85\.143\.204\.217$" DenyAccess
+	SetEnvIF X-CLUSTER-CLIENT-IP "^85\.143\.204\.217$" DenyAccess
+
+	SetEnvIF REMOTE_ADDR "^94\.25\.228\.149$" DenyAccess
+	SetEnvIF X-FORWARDED-FOR "^94\.25\.228\.149$" DenyAccess
+	SetEnvIF X-CLUSTER-CLIENT-IP "^94\.25\.228\.149$" DenyAccess
+
+	SetEnvIF REMOTE_ADDR "^195\.19\.126\.61$" DenyAccess
+	SetEnvIF X-FORWARDED-FOR "^195\.19\.126\.61$" DenyAccess
+	SetEnvIF X-CLUSTER-CLIENT-IP "^195\.19\.126\.61$" DenyAccess
+
+	<IfModule mod_authz_core.c>
+		<RequireAll>
+			Require all granted
+			Require not env DenyAccess
+			Require not ip 116.66.250.220
+			Require not ip 83.174.215.5
+			Require not ip 94.180.241.216
+			Require not ip 85.143.204.217
+			Require not ip 94.25.228.149
+			Require not ip 195.19.126.61
+		</RequireAll>
+	</IfModule>
+	<IfModule !mod_authz_core.c>
+		Order allow,deny
+		Allow from all
+		Deny from env=DenyAccess
+		Deny from 116.66.250.220
+		Deny from 83.174.215.5
+		Deny from 94.180.241.216
+		Deny from 85.143.204.217
+		Deny from 94.25.228.149
+		Deny from 195.19.126.61
+	</IfModule>
+# END iThemes Security - Не меняйте и не удаляйте эту строку
+
+# This file was updated by Duplicator on 2017-11-11 23:03:15. See .htaccess.orig for the original .htaccess file.
+# Please note that other plugins and resources write to this file. If the time-stamp above is different
+# than the current time-stamp on the file system then another resource has updated this file.
+# Duplicator only writes to this file once during the install process while running the installer.php file.
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
